@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server:{
-    port: 3000,  // 개발서버의 포트변경
+    port: 3000,  // 개발서버의 포트변경 //커밋용
   }
 })
