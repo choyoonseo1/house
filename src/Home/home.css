@@ -1,0 +1,19 @@
+.sortbar{
+  position: sticky;
+  top: 56px;             /* 상단 네비 높이에 맞게 조정 */
+  z-index: 10;
+  background:#6f2dbd;
+  color:#fff;
+  padding:12px;
+  display:flex;
+  gap:8px;
+  justify-content:center;
+}
+.sortbar .btn{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.6);
+  color:#fff;
+}
+.sortbar .btn:hover{
+  background: rgba(255,255,255,.12);
+}
