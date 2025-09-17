@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import AppNavBar from "./AppNavBar";  // 폴더(index.jsx) 자동 인식
+import Home from "./Home";            // 폴더(index.jsx) 자동 인식
+import data from "./data/data";       
+
+import Login from "./Login";
+import SignUp from "./signup";
+
+export default function App() {
+  const [items] = useState(data);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <AppNavBar />
+      <Routes>
+        {/* 메인 */}
+        <Route path="/" element={<Home items={items} />} />
+        <Route path="/main" element={<Home items={items} />} />
 
-export default App
+        {/* 로그인/회원가입 */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* 404 */}
+        <Route path="*" element={<div style={{ padding: 24 }}>Page Not Found</div>} />
+      </Routes>
+    </>
+  );
+}
